@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:f_rali_vision/classifier.dart';
 import 'package:logger/logger.dart';
-import 'package:tflite_flutter_plus/tflite_flutter_plus.dart';
-import 'package:tflite_flutter_helper_plus/tflite_flutter_helper_plus.dart';
+
+import 'label/category.dart';
 
 void main() => runApp(MyApp());
 
@@ -68,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
     var pred = _classifier.predict(imageInput);
 
     setState(() {
-      this.category = pred;
+      category = pred;
     });
   }
 
@@ -76,14 +76,14 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('TfLite Flutter Helper',
+        title: const Text('f rail vision',
             style: TextStyle(color: Colors.white)),
       ),
       body: Column(
         children: <Widget>[
           Center(
             child: _image == null
-                ? Text('No image selected.')
+                ? const Text('No image selected.')
                 : Container(
               constraints: BoxConstraints(
                   maxHeight: MediaQuery.of(context).size.height / 2),
@@ -93,28 +93,28 @@ class _MyHomePageState extends State<MyHomePage> {
               child: _imageWidget,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 36,
           ),
           Text(
             category != null ? category!.label : '',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
           ),
-          SizedBox(
+          const SizedBox(
             height: 8,
           ),
           Text(
             category != null
                 ? 'Confidence: ${category!.score.toStringAsFixed(3)}'
                 : '',
-            style: TextStyle(fontSize: 16),
+            style: const TextStyle(fontSize: 16),
           ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: getImage,
         tooltip: 'Pick Image',
-        child: Icon(Icons.add_a_photo),
+        child: const Icon(Icons.add_a_photo),
       ),
     );
   }

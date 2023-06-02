@@ -1,5 +1,6 @@
 import 'package:f_rali_vision/classifier.dart';
-import 'package:tflite_flutter_helper_plus/tflite_flutter_helper_plus.dart';
+
+import 'common/ops/normailze_op.dart';
 
 class ClassifierFloat extends Classifier {
   ClassifierFloat({int? numThreads}) : super(numThreads: numThreads);
