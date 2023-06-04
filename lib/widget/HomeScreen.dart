@@ -1,3 +1,4 @@
+import 'package:f_rali_vision/widget/InfoScreen.dart';
 import 'package:f_rali_vision/widget/MyCommonText.dart';
 import 'package:flutter/material.dart';
 import 'package:f_rali_vision/Util.dart';
@@ -12,6 +13,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         elevation: 0,
         backgroundColor: Colors.white,
         title: const MyCommonText(text: 'RailVision', fontSize: 32, fontWeight: FontWeight.bold, color: Colors.black),
@@ -30,9 +32,12 @@ class HomeScreen extends StatelessWidget {
           const SizedBox(width: 22),
         ],
       ),
-      body: const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 22.0),
-        child: MyLayoutBuilder()
+      body: Container(
+        color: Colors.white,
+        child: const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 22.0),
+            child: MyLayoutBuilder()
+        ),
       )
     );
   }
@@ -54,18 +59,26 @@ class MyLayoutBuilder extends StatelessWidget {
           children: [
             GestureDetector(
               onTap: () {
-
-              },
-              child: Row(
-                children: [
-                  const MyCommonText(text: 'Info', fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
-                  Spacer(),
-                  SvgPicture.asset(
-                    'assets/images/ic_right.svg',
-                    width: 24,
-                    height: 24,
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const InfoScreen(),
                   ),
-                ],
+                );
+              },
+              child: Container(
+                color: Colors.transparent,
+                child: Row(
+                    children: [
+                      const MyCommonText(text: 'Info', fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
+                      const Spacer(),
+                      SvgPicture.asset(
+                        'assets/images/ic_right.svg',
+                        width: 24,
+                        height: 24,
+                      ),
+                    ],
+                ),
               ),
             ),
             const SizedBox(height: 39),
