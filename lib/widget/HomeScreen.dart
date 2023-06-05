@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
+import 'package:camera/camera.dart';
 
 import 'MyElvatedButton.dart';
 
@@ -68,8 +69,21 @@ class MyLayoutBuilderState extends State<MyLayoutBuilder> {
   final picker = ImagePicker();
   String? filePath;
 
-  Future getImage() async {
+  Future _getImage() async {
     final pickedFile = await picker.pickImage(source: ImageSource.gallery);
+
+    if (context.mounted && pickedFile?.path != null) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => InspectScreen(filePath: pickedFile?.path),
+        ),
+      );
+    }
+  }
+
+  Future _getImageFromCamera() async {
+    final pickedFile = await picker.pickImage(source: ImageSource.camera);
 
     if (context.mounted && pickedFile?.path != null) {
       Navigator.push(
@@ -127,7 +141,7 @@ class MyLayoutBuilderState extends State<MyLayoutBuilder> {
                       child: MyElevatedButton(
                           text: 'Gallery',
                           onPressed: () {
-                            getImage();
+                            _getImage();
                           },
                           color: const Color(0xFF42CF48)
                       )
@@ -138,7 +152,9 @@ class MyLayoutBuilderState extends State<MyLayoutBuilder> {
                     width: width,
                     child: MyElevatedButton(
                         text: 'Camera',
-                        onPressed: () {  },
+                        onPressed: () {
+                          _getImageFromCamera();
+                        },
                         color: const Color(0xFF28B2FF)
                     ),
                   ),

@@ -70,8 +70,21 @@ class _InspectScreenState extends State<InspectScreen> {
     });
   }
 
-  //camera 연결 function
-  void _openCamera() {}
+  Future _getImageFromCamera() async {
+    _isPredict = false;
+    _inspectButtonText = "Inspect";
+
+    final pickedFile = await picker.pickImage(source: ImageSource.camera);
+
+    if (context.mounted && pickedFile?.path != null) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => InspectScreen(filePath: pickedFile?.path),
+        ),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -142,7 +155,11 @@ class _InspectScreenState extends State<InspectScreen> {
                         child: MyElevatedButton(
                             text: _inspectButtonText,
                             onPressed: () {
-                              _predict();
+                              if (!_isPredict) {
+                                _predict();
+                              } else {
+                                _getImageFromCamera();
+                              }
                             },
                             color: const Color(0xFF28B2FF))),
                   ),
