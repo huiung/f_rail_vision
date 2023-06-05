@@ -67,12 +67,9 @@ abstract class Classifier {
   }
 
   TensorImage _preProcess() {
-    int cropSize = min(_inputImage.height, _inputImage.width);
+    int cropSize = 150; //학습된 사이즈에 따라 조절필요
     return ImageProcessorBuilder()
         .add(ResizeWithCropOrPadOp(cropSize, cropSize))
-        .add(ResizeOp(
-        _inputShape[1], _inputShape[2], ResizeMethod.nearestneighbour))
-        .add(preProcessNormalizeOp)
         .build()
         .process(_inputImage);
   }
