@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Image Classification',
+      title: 'Rail Vision',
       theme: ThemeData(
         primarySwatch: Colors.indigo,
       ),
