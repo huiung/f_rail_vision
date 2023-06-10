@@ -21,7 +21,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class HomeState extends State<HomeScreen> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,30 +28,38 @@ class HomeState extends State<HomeScreen> {
           automaticallyImplyLeading: false,
           elevation: 0,
           backgroundColor: Colors.white,
-          title: const MyCommonText(text: 'RailVision', fontSize: 32, fontWeight: FontWeight.bold, color: Colors.black),
+          title: const MyCommonText(
+              text: 'RailVision',
+              fontSize: 32,
+              fontWeight: FontWeight.bold,
+              color: Colors.black),
           actions: [
-            SvgPicture.asset(
-              'assets/images/ic_alarm.svg',
-              width: 24,
-              height: 24,
-            ),
-            const SizedBox(width: 28),
-            SvgPicture.asset(
-              'assets/images/ic_user.svg',
-              width: 24,
-              height: 24,
-            ),
-            const SizedBox(width: 22),
+            Visibility(
+              visible: !Platform.isIOS,
+              child: Row(
+                children: [
+                  SvgPicture.asset(
+                    'assets/images/ic_alarm.svg',
+                    width: 24,
+                    height: 24,
+                  ),
+                  const SizedBox(width: 28),
+                  SvgPicture.asset(
+                    'assets/images/ic_user.svg',
+                    width: 24,
+                    height: 24,
+                  ),
+                  const SizedBox(width: 22),
+                ],
+          ))
           ],
         ),
         body: Container(
           color: Colors.white,
           child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 22.0),
-              child: MyLayoutBuilder()
-          ),
-        )
-    );
+              child: MyLayoutBuilder()),
+        ));
   }
 }
 
@@ -99,71 +106,75 @@ class MyLayoutBuilderState extends State<MyLayoutBuilder> {
   Widget build(BuildContext context) {
     return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
-          final width = (constraints.maxWidth - 16) * 0.5;
-          const ratio = 252.0 / 150.0;
-          final height = width * ratio;
-          return Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const InfoScreen(),
-                    ),
-                  );
-                },
-                child: Container(
-                  color: Colors.transparent,
-                  child: Row(
-                    children: [
-                      const MyCommonText(text: 'Info', fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
-                      const Spacer(),
-                      SvgPicture.asset(
-                        'assets/images/ic_right.svg',
-                        width: 24,
-                        height: 24,
-                      ),
-                    ],
-                  ),
+      final width = (constraints.maxWidth - 16) * 0.5;
+      const ratio = 252.0 / 150.0;
+      final height = width * ratio;
+      return Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const InfoScreen(),
                 ),
-              ),
-              const SizedBox(height: 39),
-              const MyCommonText(text: 'Railroad inspection', fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
-              const SizedBox(height: 20),
-              Row(
+              );
+            },
+            child: Container(
+              color: Colors.transparent,
+              child: Row(
                 children: [
-                  SizedBox(
-                      height: height,
-                      width: width,
-                      child: MyElevatedButton(
-                          text: 'Gallery',
-                          onPressed: () {
-                            _getImage();
-                          },
-                          color: const Color(0xFF42CF48)
-                      )
-                  ),
-                  const SizedBox(width: 16),
-                  SizedBox(
-                    height: height,
-                    width: width,
-                    child: MyElevatedButton(
-                        text: 'Camera',
-                        onPressed: () {
-                          _getImageFromCamera();
-                        },
-                        color: const Color(0xFF28B2FF)
-                    ),
+                  const MyCommonText(
+                      text: 'Info',
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black),
+                  const Spacer(),
+                  SvgPicture.asset(
+                    'assets/images/ic_right.svg',
+                    width: 24,
+                    height: 24,
                   ),
                 ],
               ),
-              const SizedBox(height: 45)
+            ),
+          ),
+          const SizedBox(height: 39),
+          const MyCommonText(
+              text: 'Railroad inspection',
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: Colors.black),
+          const SizedBox(height: 20),
+          Row(
+            children: [
+              SizedBox(
+                  height: height,
+                  width: width,
+                  child: MyElevatedButton(
+                      text: 'Gallery',
+                      onPressed: () {
+                        _getImage();
+                      },
+                      color: const Color(0xFF42CF48))),
+              const SizedBox(width: 16),
+              SizedBox(
+                height: height,
+                width: width,
+                child: MyElevatedButton(
+                    text: 'Camera',
+                    onPressed: () {
+                      _getImageFromCamera();
+                    },
+                    color: const Color(0xFF28B2FF)),
+              ),
             ],
-          );
-        }
-    );
+          ),
+          const SizedBox(height: 45)
+        ],
+      );
+    });
   }
 }

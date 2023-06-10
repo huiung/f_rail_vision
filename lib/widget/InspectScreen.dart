@@ -27,7 +27,7 @@ class _InspectScreenState extends State<InspectScreen> {
 
   File? _image;
   String _inspectButtonText = "Inspect";
-  bool _isInspectButtonVisible = true;
+  bool _resultIsPass = false;
   bool _isPredict = false;
   String _predictIconRes = "";
 
@@ -59,13 +59,16 @@ class _InspectScreenState extends State<InspectScreen> {
 
     setState(() {
       category = pred;
-      _inspectButtonText = "Next Image";
       _isPredict = true;
 
       if (category != null && category!.score >= 1.0) {
         _predictIconRes = 'assets/images/ic_pass.svg';
+        _inspectButtonText = "Next Image";
+        _resultIsPass = true;
       } else {
         _predictIconRes = 'assets/images/ic_fail.svg';
+        _inspectButtonText = "Retry";
+        _resultIsPass = false;
       }
     });
   }
@@ -106,73 +109,74 @@ class _InspectScreenState extends State<InspectScreen> {
         ),
         body: Container(
           color: Colors.white,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          child: ListView(
             children: [
-              const SizedBox(
-                height: 20,
-              ),
-              Center(
-                child: Stack(
-                  children: [
-                    _imageWidget == null
-                        ? const Text('No image selected.')
-                        : Expanded(
-                            child: Row(
-                              children: [
-                                Expanded(child: _imageWidget!)
-                              ],
-                            ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Center(
+                    child: Stack(
+                      children: [
+                        _imageWidget == null
+                            ? const Text('No image selected.')
+                            : Expanded(
+                          child: Row(
+                            children: [Expanded(child: _imageWidget!)],
                           ),
-                    if (_isPredict)
-                      Positioned(
-                        top: 0,
-                        left: 0,
-                        bottom: 0,
-                        right: 0,
-                        child: Center(
-                            child: SvgPicture.asset(
-                          _predictIconRes,
-                          width: 48,
-                          height: 48,
-                        )),
-                      ),
-                  ],
-                ),
-              ),
-              const SizedBox(
-                height: 22,
-              ),
-              Visibility(
-                visible: _isInspectButtonVisible,
-                child: Row(children: [
-                  const SizedBox(
-                    width: 22,
-                  ),
-                  Expanded(
-                    child: Container(
-                        height: 60,
-                        child: MyElevatedButton(
-                            text: _inspectButtonText,
-                            onPressed: () {
-                              if (!_isPredict) {
-                                _predict();
-                              } else {
-                                _getImageFromCamera();
-                              }
-                            },
-                            color: const Color(0xFF28B2FF))),
+                        ),
+                        if (_isPredict)
+                          Positioned(
+                            top: 0,
+                            left: 0,
+                            bottom: 0,
+                            right: 0,
+                            child: Center(
+                                child: SvgPicture.asset(
+                                  _predictIconRes,
+                                  width: 48,
+                                  height: 48,
+                                )),
+                          ),
+                      ],
+                    ),
                   ),
                   const SizedBox(
-                    width: 22,
+                    height: 22,
                   ),
-                ]),
-              ),
-              const SizedBox(
-                height: 22,
+                  Row(children: [
+                    const SizedBox(
+                      width: 22,
+                    ),
+                    Expanded(
+                      child: SizedBox(
+                          height: 60,
+                          child: MyElevatedButton(
+                              text: _inspectButtonText,
+                              onPressed: () {
+                                if (!_isPredict) {
+                                  _predict();
+                                } else if (_resultIsPass){
+                                  _getImageFromCamera();
+                                } else {
+                                  Navigator.pop(context);
+                                }
+                              },
+                              color: const Color(0xFF28B2FF))),
+                    ),
+                    const SizedBox(
+                      width: 22,
+                    ),
+                  ]),
+                  const SizedBox(
+                    height: 22,
+                  ),
+                ],
               ),
             ],
-          ),
+          )
         ));
   }
 }
