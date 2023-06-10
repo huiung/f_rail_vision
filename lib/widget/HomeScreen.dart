@@ -33,6 +33,7 @@ class HomeState extends State<HomeScreen> {
               fontSize: 32,
               fontWeight: FontWeight.bold,
               color: Colors.black),
+          centerTitle: false,
           actions: [
             Visibility(
               visible: !Platform.isIOS,
