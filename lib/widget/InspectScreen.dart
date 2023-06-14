@@ -122,11 +122,9 @@ class _InspectScreenState extends State<InspectScreen> {
                       children: [
                         _imageWidget == null
                             ? const Text('No image selected.')
-                            : Expanded(
-                          child: Row(
+                            : Row(
                             children: [Expanded(child: _imageWidget!)],
                           ),
-                        ),
                         if (_isPredict)
                           Positioned(
                             top: 0,
