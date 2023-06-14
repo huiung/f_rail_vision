@@ -1,7 +1,7 @@
 import 'package:image/image.dart';
 import 'package:quiver/check.dart';
-import 'package:f_rali_vision/tflite/image/image_conversions.dart';
-import 'package:f_rali_vision/tflite/tensorbuffer/tensorbuffer.dart';
+import 'package:f_rail_vision/tflite/image/image_conversions.dart';
+import 'package:f_rail_vision/tflite/tensorbuffer/tensorbuffer.dart';
 
 abstract class ColorSpaceType {
   // The first element of the normalizaed shape.

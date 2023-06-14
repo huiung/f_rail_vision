@@ -3,7 +3,7 @@ import 'dart:typed_data';
 
 import 'package:quiver/check.dart';
 import 'package:tflite_flutter_plus/tflite_flutter_plus.dart';
-import 'package:f_rali_vision/tflite/tensorbuffer/tensorbuffer.dart';
+import 'package:f_rail_vision/tflite/tensorbuffer/tensorbuffer.dart';
 
 class TensorAudio {
   static const String tag = "TensorAudioDart";

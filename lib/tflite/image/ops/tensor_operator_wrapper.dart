@@ -1,10 +1,10 @@
 import 'dart:math';
 
-import 'package:f_rali_vision/tflite/common/support_preconditions.dart';
-import 'package:f_rali_vision/tflite/common/tensor_operator.dart';
-import 'package:f_rali_vision/tflite/image/image_operator.dart';
-import 'package:f_rali_vision/tflite/image/tensor_image.dart';
-import 'package:f_rali_vision/tflite/tensorbuffer/tensorbuffer.dart';
+import 'package:f_rail_vision/tflite/common/support_preconditions.dart';
+import 'package:f_rail_vision/tflite/common/tensor_operator.dart';
+import 'package:f_rail_vision/tflite/image/image_operator.dart';
+import 'package:f_rail_vision/tflite/image/tensor_image.dart';
+import 'package:f_rail_vision/tflite/tensorbuffer/tensorbuffer.dart';
 
 /// The adapter that makes a TensorOperator able to run with TensorImage.
 ///

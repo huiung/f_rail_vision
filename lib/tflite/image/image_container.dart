@@ -1,10 +1,10 @@
 import 'package:camera/camera.dart';
 import 'package:image/image.dart';
 import 'package:tflite_flutter_plus/tflite_flutter_plus.dart';
-import 'package:f_rali_vision/tflite/image/base_image_container.dart';
-import 'package:f_rali_vision/tflite/image/image_conversions.dart';
-import 'package:f_rali_vision/tflite/tensorbuffer/tensorbuffer.dart';
-import 'package:f_rali_vision/tflite/image/color_space_type.dart';
+import 'package:f_rail_vision/tflite/image/base_image_container.dart';
+import 'package:f_rail_vision/tflite/image/image_conversions.dart';
+import 'package:f_rail_vision/tflite/tensorbuffer/tensorbuffer.dart';
+import 'package:f_rail_vision/tflite/image/color_space_type.dart';
 
 class ImageContainer extends BaseImageContainer {
   late final Image _image;

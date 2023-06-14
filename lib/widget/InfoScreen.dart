@@ -1,4 +1,4 @@
-import 'package:f_rali_vision/widget/MyCommonText.dart';
+import 'package:f_rail_vision/widget/MyCommonText.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 

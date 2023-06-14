@@ -1,4 +1,4 @@
-import 'package:f_rali_vision/tflite/classifier.dart';
+import 'package:f_rail_vision/tflite/classifier.dart';
 
 import './common/ops/normailze_op.dart';
 

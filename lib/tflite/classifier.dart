@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:f_rali_vision/tflite/tensorbuffer/tensorbuffer.dart';
+import 'package:f_rail_vision/tflite/tensorbuffer/tensorbuffer.dart';
 import 'package:image/image.dart';
 import 'package:collection/collection.dart';
 import 'package:logger/logger.dart';

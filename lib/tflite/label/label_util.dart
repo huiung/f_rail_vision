@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
-import 'package:f_rali_vision/tflite/common/support_preconditions.dart';
-import 'package:f_rali_vision/tflite/tensorbuffer/tensorbuffer.dart';
+import 'package:f_rail_vision/tflite/common/support_preconditions.dart';
+import 'package:f_rail_vision/tflite/tensorbuffer/tensorbuffer.dart';
 
 /// Label operation utils.
 class LabelUtil {

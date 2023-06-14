@@ -1,7 +1,7 @@
 import 'dart:math' show Point;
 import 'package:image/image.dart' show Image, copyRotate;
-import 'package:f_rali_vision/tflite/image/image_operator.dart';
-import 'package:f_rali_vision/tflite/image/tensor_image.dart';
+import 'package:f_rail_vision/tflite/image/image_operator.dart';
+import 'package:f_rail_vision/tflite/image/tensor_image.dart';
 
 /// Rotates image by multiples of 90 degree.
 class Rot90Op extends ImageOperator {

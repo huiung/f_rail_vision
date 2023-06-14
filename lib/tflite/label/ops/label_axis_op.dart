@@ -1,8 +1,8 @@
 import 'package:meta/meta.dart';
-import 'package:f_rali_vision/tflite/common/file_util.dart';
-import 'package:f_rali_vision/tflite/common/support_preconditions.dart';
-import 'package:f_rali_vision/tflite/label/tensor_label.dart';
-import 'package:f_rali_vision/tflite/tensorbuffer/tensorbuffer.dart';
+import 'package:f_rail_vision/tflite/common/file_util.dart';
+import 'package:f_rail_vision/tflite/common/support_preconditions.dart';
+import 'package:f_rail_vision/tflite/label/tensor_label.dart';
+import 'package:f_rail_vision/tflite/tensorbuffer/tensorbuffer.dart';
 
 /// Labels TensorBuffer with axisLabels for outputs.
 ///

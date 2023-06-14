@@ -1,11 +1,11 @@
 import 'dart:io';
 import 'dart:math';
-import 'package:f_rali_vision/tflite/classifier_float.dart';
+import 'package:f_rail_vision/tflite/classifier_float.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:image/image.dart' as img;
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:f_rali_vision/tflite/classifier.dart';
+import 'package:f_rail_vision/tflite/classifier.dart';
 import 'package:logger/logger.dart';
 
 import '../tflite/label/category.dart';

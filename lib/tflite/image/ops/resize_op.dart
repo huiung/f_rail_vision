@@ -1,8 +1,8 @@
 import 'package:image/image.dart' show Image, copyResize, Interpolation;
 import 'dart:math' show Point;
-import 'package:f_rali_vision/tflite/image/image_operator.dart';
-import 'package:f_rali_vision/tflite/image/ops/resize_with_crop_or_pad_op.dart';
-import 'package:f_rali_vision/tflite/image/tensor_image.dart';
+import 'package:f_rail_vision/tflite/image/image_operator.dart';
+import 'package:f_rail_vision/tflite/image/ops/resize_with_crop_or_pad_op.dart';
+import 'package:f_rail_vision/tflite/image/tensor_image.dart';
 
 /// As a computation unit for processing images, it can resize an image to user-specified size.
 ///

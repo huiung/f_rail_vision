@@ -1,5 +1,5 @@
-import 'package:f_rali_vision/tflite/common/ops/normailze_op.dart';
-import 'package:f_rali_vision/tflite/common/tensor_operator.dart';
+import 'package:f_rail_vision/tflite/common/ops/normailze_op.dart';
+import 'package:f_rail_vision/tflite/common/tensor_operator.dart';
 
 /// Dequantizes a [TensorBuffer] with given [zeroPoint] and [scale].
 ///

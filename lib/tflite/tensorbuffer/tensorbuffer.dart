@@ -1,10 +1,10 @@
 import 'dart:typed_data';
 
-import 'package:f_rali_vision/tflite/common/support_preconditions.dart';
+import 'package:f_rail_vision/tflite/common/support_preconditions.dart';
 import 'package:tflite_flutter_plus/tflite_flutter_plus.dart';
 import 'package:meta/meta.dart';
-import 'package:f_rali_vision/tflite/tensorbuffer/tensorbufferfloat.dart';
-import 'package:f_rali_vision/tflite/tensorbuffer/tensorbufferuint8.dart';
+import 'package:f_rail_vision/tflite/tensorbuffer/tensorbufferfloat.dart';
+import 'package:f_rail_vision/tflite/tensorbuffer/tensorbufferuint8.dart';
 
 /// Represents the data buffer for either a model's input or its output.
 abstract class TensorBuffer {

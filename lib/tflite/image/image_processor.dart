@@ -1,12 +1,12 @@
 import 'dart:math';
 import 'dart:ui';
 
-import 'package:f_rali_vision/tflite/common/operator.dart';
-import 'package:f_rali_vision/tflite/common/sequential_processor.dart';
-import 'package:f_rali_vision/tflite/common/support_preconditions.dart';
-import 'package:f_rali_vision/tflite/common/tensor_operator.dart';
-import 'package:f_rali_vision/tflite/image/ops/tensor_operator_wrapper.dart';
-import 'package:f_rali_vision/tflite/image/tensor_image.dart';
+import 'package:f_rail_vision/tflite/common/operator.dart';
+import 'package:f_rail_vision/tflite/common/sequential_processor.dart';
+import 'package:f_rail_vision/tflite/common/support_preconditions.dart';
+import 'package:f_rail_vision/tflite/common/tensor_operator.dart';
+import 'package:f_rail_vision/tflite/image/ops/tensor_operator_wrapper.dart';
+import 'package:f_rail_vision/tflite/image/tensor_image.dart';
 
 import 'image_operator.dart';
 import 'ops/rot90_op.dart';

@@ -1,5 +1,5 @@
-import 'package:f_rali_vision/tflite/common/support_preconditions.dart';
-import 'package:f_rali_vision/tflite/image/image_processor.dart';
+import 'package:f_rail_vision/tflite/common/support_preconditions.dart';
+import 'package:f_rail_vision/tflite/image/image_processor.dart';
 import 'operator.dart';
 import 'processor.dart';
 import 'package:meta/meta.dart';

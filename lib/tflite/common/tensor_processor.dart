@@ -1,6 +1,6 @@
-import 'package:f_rali_vision/tflite/common/operator.dart';
-import 'package:f_rali_vision/tflite/common/sequential_processor.dart';
-import 'package:f_rali_vision/tflite/tensorbuffer/tensorbuffer.dart';
+import 'package:f_rail_vision/tflite/common/operator.dart';
+import 'package:f_rail_vision/tflite/common/sequential_processor.dart';
+import 'package:f_rail_vision/tflite/tensorbuffer/tensorbuffer.dart';
 
 /// TensorProcessor is a helper class for preprocessing and postprocessing tensors. It could
 /// transform a [TensorBuffer] to another by executing a chain of [TensorOperator].
